@@ -12,15 +12,21 @@
 version: '3'
 services:
   epub_to_audiobook:
-    image: ghcr.io/p0n1/epub_to_audiobook:latest
+    image: epub_to_audiobook:local
     environment:
       MS_TTS_KEY: <your_subscription_key>
       MS_TTS_REGION: <your_region>
-      # for custom OpenAI-compatible endpoints
-      # OPENAI_BASE_URL: <your_openai_base_url>
-      OPENAI_API_KEY: <your_openai_api_key>
+      # Use the internal Docker network to reach kokoro
+      OPENAI_BASE_URL: http://kokoro:8880/v1
+      OPENAI_API_KEY: fake
     ports:
       - "7860:7860"
     volumes:
       - ./:/app
     command: 'python3 /app_src/main_ui.py --host 0.0.0.0 --port 7860'
+
+  kokoro:
+    image: ghcr.io/remsky/kokoro-fastapi-cpu
+    ports:
+      - "8880:8880"
+    # No command needed, uses default

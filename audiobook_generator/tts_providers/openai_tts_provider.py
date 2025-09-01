@@ -20,7 +20,7 @@ def get_openai_supported_output_formats():
     return ["mp3", "aac", "flac", "opus", "wav"]
 
 def get_openai_supported_voices():
-    return ["alloy", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"]
+    return ["alloy", "af_alloy", "af_bella", "ash", "ballad", "coral", "echo", "fable", "onyx", "nova", "sage", "shimmer", "verse"]
 
 def get_openai_supported_models():
     return ["gpt-4o-mini-tts", "tts-1", "tts-1-hd"]
@@ -30,6 +30,7 @@ def get_openai_instructions_example():
 Tone: Sincere, empathetic, with genuine concern for the customer and understanding of the situation.
 Pacing: Slower during the apology to allow for clarity and processing. Faster when offering solutions to signal action and resolution.
 Emotions: Calm reassurance, empathy, and gratitude.
+aslkfjlsadkjflksdjf lksdjf lksajdfkj salfjlkdsaj
 Pronunciation: Clear, precise: Ensures clarity, especially with key details. Focus on key words like 'refund' and 'patience.' 
 Pauses: Before and after the apology to give space for processing the apology."""
 
